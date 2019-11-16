@@ -13,3 +13,7 @@ h1 {
 #dog-form {
   text-align: center;
 }
+
+.hidden {
+  display: none;
+}

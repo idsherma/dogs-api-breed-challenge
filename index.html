@@ -16,10 +16,13 @@
     <form id="dog-form">
       <label for="dogs">Get dog images by breed</label>
       <input type="text" name="shopping-list-entry" id="breed-list-entry" placeholder="e.g., Beagle">
-      <button type="submit">Fetch this breed!</button>
+      <button type="submit" id="submit">Fetch this breed!</button>
     </form>
-
-    <div id="dog-list"></div>
+ 
+    <section class="results hidden">
+      <h2>Look at this dog!</h2>
+      <img class="results-img" alt="placeholder">
+    </section>
   </div>
 
   <!-- PAGE JAVASCRIPT -->

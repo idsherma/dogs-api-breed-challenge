@@ -18,9 +18,18 @@
 
         function displayResults(data) {
             console.log(data);
+            let dogData = data.message;
+            console.log(dogData);
 
-            $('#dog-list').append(``);
-
+            if(dogData === 'Breed not found (master breed does not exist)') {
+                alert('Breed not found');
+                return;
+            } else {
+                $('.results-img').replaceWith(`<img src="${dogData}" class="results-img">`);
+            }
+                    
+            //display the results section
+            $('.results').removeClass('hidden');
         }
 
         function watchForm() {
@@ -28,8 +37,14 @@
                 event.preventDefault();
 
                let userBreedEntry = $('#breed-list-entry').val();
-               console.log(userBreedEntry);
-               getDogImage(userBreedEntry);
+
+                if(userBreedEntry === '') {
+                    alert('Input can not be left blank');
+                    return;
+                }
+
+                getDogImage(userBreedEntry);
+                $('#dog-form').find('input:text').val(''); 
 
             });
         }
