@@ -5,9 +5,11 @@
         'use strict';
 
         function getDogImage(userBreedEntry) {
-            let breedParameter = userBreedEntry;
-
-            let newURL = `https://dog.ceo/api/breed/${userBreedEntry}/images/random`;
+            
+            //handle use cases if user input capitalizes any letter in input
+            let breedParameter = userBreedEntry.toLowerCase();
+            
+            let newURL = `https://dog.ceo/api/breed/${breedParameter}/images/random`;
             //console.log(test);
 
             fetch(newURL)
@@ -17,12 +19,12 @@
         }
 
         function displayResults(data) {
-            console.log(data);
+            //console.log(data);
             let dogData = data.message;
             console.log(dogData);
 
             if(dogData === 'Breed not found (master breed does not exist)') {
-                alert('Breed not found');
+                alert('Breed not found (master breed does not exist). Please try again!');
                 return;
             } else {
                 $('.results-img').replaceWith(`<img src="${dogData}" class="results-img">`);
