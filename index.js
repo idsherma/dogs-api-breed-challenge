@@ -10,7 +10,6 @@
             let breedParameter = userBreedEntry.toLowerCase();
             
             let newURL = `https://dog.ceo/api/breed/${breedParameter}/images/random`;
-            //console.log(test);
 
             fetch(newURL)
                 .then(response => response.json())
@@ -19,11 +18,11 @@
         }
 
         function displayResults(data) {
-            //console.log(data);
-            let dogData = data.message;
-            console.log(dogData);
 
-            if(dogData === 'Breed not found (master breed does not exist)') {
+            let dogData = data.message;
+            let dogStatus = data.status;
+
+            if(dogStatus === 'error') {
                 alert('Breed not found (master breed does not exist). Please try again!');
                 return;
             } else {
